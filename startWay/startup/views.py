@@ -6,10 +6,12 @@ from .models import *
 from django.contrib.auth.models import User
 from django.http import HttpResponseNotFound, HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 
 from .forms import FounderForm
 
 
+#This route where all user get redirected to their respective profiles 
 @login_required
 def home(request):
     
@@ -29,8 +31,14 @@ def home(request):
 
 
 
-
+@login_required
 def founder_update(request, id):
+   
+    #Prevent other types of user from access
+    user = request.user
+    if not hasattr(user, 'founder'):
+        raise PermissionDenied
+   
     
     founder = get_object_or_404(Founder, id=id)
 
@@ -44,13 +52,22 @@ def founder_update(request, id):
         return render(request, template_name='startup/founder_update.html', context= {'form' : form,'id' : id})
 
 
-
+@login_required
 def founder_detail(request, id):
+    user = request.user
+    if not hasattr(user,'founder'):
+        raise PermissionDenied
+        
     founder = get_object_or_404(Founder, id=id)
 
     return render(request, template_name='startup/founder_detail.html', context= {'founder' : founder})
-    
+
+@login_required  
 def employee_update(request, id):
+    user = request.user
+    if not hasattr(user,'employee'):
+        raise PermissionDenied
+        
     
     employee = get_object_or_404(Employee, id=id)
 
@@ -64,14 +81,23 @@ def employee_update(request, id):
         form = EmployeeForm(instance=employee)
         return render(request, template_name='startup/employee_update.html', context= {'form' : form,'id' : id})
 
-
+@login_required
 def employee_detail(request, id):
+    user = request.user
+    if not hasattr(user,'employee'):
+        raise PermissionDenied
+        
     employee = get_object_or_404(Employee, id=id)
 
     return render(request, template_name='startup/employee_detail.html', context= {'employee' : employee})
 
-
+@login_required
 def investor_feed(request):
+    
+    user = request.user
+    if not hasattr(user, 'investor'):
+        raise PermissionDenied
+    
     
     founders = Founder.objects.all()
     return  render(request , template_name="startup/investor_feed.html", context={"founders" : founders})
