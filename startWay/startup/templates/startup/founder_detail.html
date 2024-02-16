@@ -7,32 +7,56 @@
 
 
 {% block content %}
-   
-   
-   
-
-    <h2>Startup Name</h2>
-    <p>{{ founder.startupName }}</p>
+    
+        
+    <div class="d-flex mb-4">
+        <div class="d-flex flex-column mr-2 ">
+        
+           <img class="rounded-4 mb-2"  witdth="172.55px" height="172.55px" src="{{ founder.founder_image_url }}" alt="profile-image">
+           <h2 class="text-center">{{ founder.startupName  }}</h2>
+        
+        </div>
+        
+        <div class="d-flex flex-column flex-grow-1">
+            <p class="ml-5 fw-bold p-0">Description</p>
+            <div class=" card">
+                <p class="card-body h-75 p-2">{{ founder.description  }}</p>
+            </div>
+        </div>
+    </div>
 
 
     <h2>Website URL</h2>
-    <p>{{ founder.websiteUrl  }}</p>
+    <div class="card mb-4">
+        <p class="card-body p-2">  {{ founder.websiteUrl  }}</p>
+    </div>
 
-    <h2>City</h2>
-    <p>{{ founder.city  }}</p>
-
-
-    <h2>Business</h2>
-    <p>{{ founder.business  }}</p>
-
-    <h2>Annual  Revenue</h2>
-    <p>{{ founder.annualRevenue  }}</p>
-
-    <h2>Product type</h2>
-    <p>{{ founder.productType  }}</p>
     
-    <h2>Description</h2>
-    <p>{{ founder.description  }}</p>
+    <h2>City</h2>
+    <div class="card mb-4">
+        <div class="card-body p-2">  {{ founder.city  }}</div>
+    </div>
+    
+    <h2>Business</h2>
+    <div class="card mb-4">
+        <div class="card-body p-2">  {{ founder.business  }}</div>
+    </div>
+
+    
+    <h2>Annuel Revenue</h2>
+    <div class="card mb-4">
+        <div class="card-body p-2">  {{ founder.annualRevenue  }}</div>
+    </div>
+    
+    <h2>Product type</h2>
+    <div class="card mb-4">
+        <div class="card-body p-2">  {{ founder.productType  }}</div>
+    </div>
+
+
+
+
+    
 
 
 
