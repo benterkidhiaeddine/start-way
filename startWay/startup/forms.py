@@ -16,7 +16,7 @@ class SignUpForm(forms.Form):
 
 class SignInForm(forms.Form):
 
-    userna = forms.EmailField()
+    email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput())
 
 

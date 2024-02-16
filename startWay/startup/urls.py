@@ -1,13 +1,14 @@
 from django.urls import path
+from . import auth
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path('login/', views.user_login, name='login'),
-    path('signup/', views.user_signup, name='signup'),
-    path('logout/', views.user_logout, name='logout'),
+    path('login/', auth.user_login, name='login'),
+    path('signup/', auth.user_signup, name='signup'),
+    path('logout/', auth.user_logout, name='logout'),
     path('founders/<int:id>/update', views.founder_update, name='founder_update' ),
     path('founders/<int:id>/detail',views.founder_detail, name ='founder_detail'),
     path('employees/<int:id>/detail',views.employee_detail, name ='employee_detail'),
