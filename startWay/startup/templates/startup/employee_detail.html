@@ -49,8 +49,13 @@
     <div class="card mb-4">
         <div class="card-body p-2">  {{ employee.phone_number  }}</div>
     </div>
+
+
+        {% if user.is_authenticated %}
+        {% if user|is_user:'employee' %}
     <a class="btn btn-info" href="{% url 'employee_update' employee.pk %}">Edit profile</a>
-    
+        {% endif %}
+        {% endif %}
 
     
 

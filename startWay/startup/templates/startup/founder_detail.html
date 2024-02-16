@@ -1,7 +1,7 @@
 {% extends "startup/base.html" %}
 {% load django_bootstrap5 %}
 {% load static %}
-
+{% load user_filter %}
 
 
 
@@ -54,7 +54,11 @@
     </div>
 
 
+    {% if user.is_authenticated %}
+        {% if user|is_user:'founder' == True %}
+            <a class="btn btn-info" href="{% url 'founder_update' founder.pk %}">Edit profile</a>
+        {% endif %}
+    {% endif %}
 
 
-    <a class="btn btn-info" href="{% url 'founder_update' founder.pk %}">Edit profile</a>
 {% endblock %}
