@@ -10,5 +10,5 @@ class SignUpForm(forms.Form):
     phone_number = forms.CharField(max_length=255)
     password = forms.CharField(widget=forms.PasswordInput())
     city = forms.CharField(max_length=255)
-    role = forms.ChoiceField(choices=role_choices )
+    role = forms.ChoiceField(choices=role_choices)
 
