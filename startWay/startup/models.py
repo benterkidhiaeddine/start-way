@@ -25,7 +25,7 @@ class Founder(models.Model):
     profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
 #
     @property
-    def founder_image_url(self):
+    def image_url(self):
         try:
             return self.profile_image.url
         except: 
@@ -47,8 +47,18 @@ class Employee(models.Model):
     city = models.CharField(max_length=255)
     hourlyRate = models.FloatField(null=True, blank=True)
     role = models.CharField(max_length=7, choices=CHOICES)
-    phone_number = models.CharField(max_length=255)
+    description = models.TextField(null=True, blank=True)
 
+    phone_number = models.CharField(max_length=255)
+    profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
+
+
+    @property
+    def image_url(self):
+        try:
+            return self.profile_image.url
+        except: 
+            return "/media/images/default.jpg"
 
 
 class Skill(models.Model):

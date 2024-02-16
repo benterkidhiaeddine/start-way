@@ -6,25 +6,51 @@
 
 
 {% block content %}
-    <h2><span>{{ employee.role|title  }}
-    </span> Name</h2>
-    <p>{{ employee.user.username  }}</p>
+
+
+
+     <div class="d-flex mb-4">
+        <div class="d-flex flex-column mr-2 ">
+        
+           <img class="rounded-4 mb-2"  witdth="172.55px" height="172.55px" src="{{ employee.image_url }}" alt="profile-image">
+           <h2 class="text-center"><span>{{ employee.role|title  }}
+    </span>{{ employee.user.username  }}</h2>
+        
+        </div>
+        
+        <div class="d-flex flex-column flex-grow-1">
+            <p class="ml-5 fw-bold p-0">Description</p>
+            <div class=" card">
+                <p class="card-body h-75 p-2">{{ employee.description  }}</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
     
-    <h2>Description</h2>
-    <p>{{ founder.description  }}</p>
-
-    <h2>Website URL</h2>
-    <p>{{ employee.websiteUrl  }}</p>
-
     <h2>City</h2>
-    <p>{{ employee.city  }}</p>
-
-
+    <div class="card mb-4">
+        <div class="card-body p-2">  {{ employee.city  }}</div>
+    </div>
+    
     <h2>Speciality</h2>
-    <p>{{ employee.speciality  }}</p>
+    <div class="card mb-4">
+        <div class="card-body p-2">  {{ employee.speciality  }}</div>
+    </div>
 
+    
     <h2>Hourly Rate</h2>
-    <p>{{ employee.hourlyRate  }}</p>
+    <div class="card mb-4">
+        <div class="card-body p-2">  {{ employee.hourlyRate  }}</div>
+    </div>
+    <h2>Phone number</h2>
+    <div class="card mb-4">
+        <div class="card-body p-2">  {{ employee.phone_number  }}</div>
+    </div>
+    <a class="btn btn-info" href="{% url 'employee_update' employee.pk %}">Edit profile</a>
+    
 
     
 

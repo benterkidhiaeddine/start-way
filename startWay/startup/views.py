@@ -77,7 +77,7 @@ def employee_update(request, id):
     employee = get_object_or_404(Employee, id=id)
 
     if request.method == 'POST':
-        form = EmployeeForm(request.POST, instance=employee)
+        form = EmployeeForm(request.POST,request.FILES, instance=employee)
         if form.is_valid(): 
              employee.save()
          
