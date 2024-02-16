@@ -1,21 +1,35 @@
 {%  extends "startup/base.html" %} 
 
+{% block extra %}
+<style>
+   .cards-container {
+  gap: 2vw 5vw;
+  padding: 0 3.5vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  padding-bottom: 7vh;
+}
+</style>
+{% endblock %}
+
+
 
 
  {% block content %}
  
-    {% for founder in founders  %}
-
- <div class="card" style="width: 18rem;">
-  
-    <img src="{{ founder.image_url  }}" class="card-img-top" alt="profile_image">
-    <div class="card-body">
-      <h5 class="card-title">{{ founder.startupName }} </h5>
-      <p class="card-text">{{ founder.city}} </p>
-      <p class="card-text"> {{ founder.email }} </p>
-      <a class="btn btn-primary">Fund</a>
-      <a class="btn btn-info" href="{% url 'founder_detail' founder.pk %}">Detail</a></p>
+    <div class="cards-container">
+       {% for founder in founders  %}
+       
+        <div class="card" style="width: 18rem;">
+       <img src="{{ founder.image_url  }}" class="card-img-top" alt="profile_image">
+       <div class="card-body">
+         <h5 class="card-title">{{ founder.startupName }} </h5>
+         <p class="card-text">{{ founder.city}} </p>
+         <p class="card-text"> {{ founder.email }} </p>
+         <a class="btn btn-primary">Fund</a>
+         <a class="btn btn-info" href="{% url 'founder_detail' founder.pk %}">Detail</a></p>
+       </div>
+       {% endfor %}
     </div>
-    {% endfor %}
  
  {% endblock content %}

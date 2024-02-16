@@ -59,9 +59,6 @@ def founder_update(request, id):
 
 @login_required
 def founder_detail(request, id):
-    user = request.user
-    if not hasattr(user,'founder'):
-        raise PermissionDenied
         
     founder = get_object_or_404(Founder, id=id)
 
@@ -89,8 +86,6 @@ def employee_update(request, id):
 @login_required
 def employee_detail(request, id):
     user = request.user
-    if not hasattr(user,'employee'):
-        raise PermissionDenied
         
     employee = get_object_or_404(Employee, id=id)
 

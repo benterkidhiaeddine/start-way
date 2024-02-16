@@ -13,7 +13,7 @@ urlpatterns = [
     path('founders/<int:id>/detail',views.founder_detail, name ='founder_detail'),
     path('employees/<int:id>/detail',views.employee_detail, name ='employee_detail'),
     path('employees/<int:id>/update',views.employee_update, name ='employee_update'),
-    path('investor_feed' , views.investor_feed, name = 'start_up_list')
+    path('investor_feed' , views.investor_feed, name = 'investor_feed')
     
 ]
 
