@@ -1,20 +1,122 @@
-{% load static %}
-{% load django_bootstrap5 %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<form action={% url 'signup' %} method="post">
-    {% csrf_token %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    {{ form }}
+    <style>
+      /* Custom CSS for the gradient background */
+      .gradient-background {
+        background: linear-gradient(to bottom, #900CFB, #E477FD); /* Gradient colors */
+      }
 
-    <button>submit</button>
-</form>
-</body>
+      .center-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Adjust height as needed */
+      }
+
+      .white {
+      color: #FFFFFF;
+      }
+
+      .btng{
+         background: linear-gradient(to bottom, #900CFB, #E477FD);
+        width: 400px;
+        height: 40px;
+      }
+
+
+    
+      </style>
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7  p-5 text-center mx-auto" style="height: 100vh;" > <!-- Adjust height to take full viewport height -->
+              <p>Let's get you started</p>
+              
+              <form action="{% url 'signup' %}" method="post"> 
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                
+                      <label class="btn btn-secondary mr-3">
+                        <input type="checkbox" autocomplete="off" name="role" value="investor"> Investor
+                      </label>
+                      <label class="btn btn-secondary mr-3">
+                        <input type="checkbox" autocomplete="off"name="role" value="mentor"> Mentor
+                      </label>
+                      <label class="btn btn-secondary mr-3">
+                        <input type="checkbox" autocomplete="off"name="role" value="founder"> Founder
+                      </label>
+                      <label class="btn btn-secondary mr-3">
+                        <input type="checkbox" autocomplete="off" name="role" value="talent"> Talent
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="container pt-5 pr-3 pl-3 mr-3 ml-3">
+                  <div class="row">
+                      <div class="col">
+                          <div class="mb-2">
+                            {{form.name.label}}
+                            {{ form.name }}
+                            <p style="color:red">{{ form.name.erros }}</p>
+                          </div>
+                          <div class="mb-2">
+                            {{form.email.label}}
+                            {{ form.email }}
+                            <p style="color:red">{{ form.email.erros }}</p>
+                          </div>
+                          <div class="mb-2">
+                            {{form.phone_number.label}}
+                            {{ form.phone_number }}
+                            <p style="color:red">{{ form.phone_number.erros }}</p>
+                          </div>
+                          <div class="mb-2">
+                            {{form.password.label}}
+                            {{ form.password }}
+                            <p style="color:red">{{ form.password.erros }}</p>
+                          </div>
+                          <div class="mb-2">
+                            {{form.city.label}}
+                            {{ form.city }}
+                            <p style="color:red">{{ form.city.erros }}</p>
+                          </div>
+                          <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btng gradient-background" type="submit">Sing up</button>
+                          </div>
+                      </div>
+                  </div>
+                            </div>
+              </form>
+            
+            
+
+            </div>
+            
+            <div class=" gradient-background col-md-5" style="height: 100vh;"> <!-- Adjust height to take full viewport height -->
+              <h1 class="center-content white">“Let The Way Of Your Startup Begins”</h1>
+
+            </div>
+        </div>
+    </div>
+    
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
 </html>

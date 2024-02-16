@@ -45,8 +45,7 @@ def user_signup(request):
             phone_number = form.cleaned_data["phone_number"]
             password = form.cleaned_data["password"]
             city = form.cleaned_data["city"]
-            role = form.cleaned_data["role"]
-
+            role = request.POST["role"] 
             user = User(username = email)
             
             user.set_password(password)
