@@ -6,7 +6,7 @@
   {% block content %}
  
 
-    <form action={% url 'founder_detail' id %} method="post">
+    <form action={% url 'founder_update' id %} method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
         {% bootstrap_form  form  %}

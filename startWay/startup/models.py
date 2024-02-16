@@ -23,6 +23,10 @@ class Founder(models.Model):
     productType = models.CharField(max_length=255,null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     phone_number = models.CharField(max_length=255)
+    profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
+
+    
+    
 
 
 class Employee(models.Model):

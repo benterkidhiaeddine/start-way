@@ -1,15 +1,14 @@
 {% extends "startup/base.html" %}
 {% load django_bootstrap5 %}
+{% load static %}
 
 
 
 
 
 {% block content %}
-    
-    <h2>Startup Name</h2>
-    <p>{{ founder.startUpName  }}</p>
-
+   
+    <img src="{{ founder.profile_image.url }}" alt="profile-image">
     <h2>Website URL</h2>
     <p>{{ founder.websiteUrl  }}</p>
 
@@ -17,7 +16,7 @@
     <p>{{ founder.city  }}</p>
 
 
-    <h2>Buisiness</h2>
+    <h2>Business</h2>
     <p>{{ founder.business  }}</p>
 
     <h2>Annual  Revenue</h2>

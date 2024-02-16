@@ -24,7 +24,7 @@ class SignInForm(forms.Form):
 class FounderForm(forms.ModelForm):
     class Meta:
         model = Founder
-        fields = ['startupName', 'websiteUrl', 'city', 'business', 'annualRevenue', 'productType', 'description']
+        fields = ['startupName', 'websiteUrl', 'city', 'business', 'annualRevenue', 'productType', 'description', 'profile_image']
 
 class EmployeeForm(forms.ModelForm):
     class Meta:

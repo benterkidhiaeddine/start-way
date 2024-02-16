@@ -75,7 +75,7 @@ def founder_update(request, id):
     founder = get_object_or_404(Founder, id=id)
 
     if request.method == 'POST':
-        form = FounderForm(request.POST, instance=founder)
+        form = FounderForm(request.POST, request.FILES, instance=founder)
         if form.is_valid(): 
              founder.save()
              return redirect("home")
@@ -98,7 +98,8 @@ def employee_update(request, id):
         form = EmployeeForm(request.POST, instance=employee)
         if form.is_valid(): 
              employee.save()
-             return redirect("home")
+         
+        return redirect("home")
     else:
         form = EmployeeForm(instance=employee)
         return render(request, template_name='startup/employee_update.html', context= {'form' : form,'id' : id})
