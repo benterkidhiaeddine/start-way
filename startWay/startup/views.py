@@ -70,7 +70,6 @@ def user_logout(request):
     logout(request)
     return redirect('login')
 
-#founder from
 def founder_update(request, id):
     
     founder = get_object_or_404(Founder, id=id)
@@ -91,6 +90,24 @@ def founder_detail(request, id):
 
     return render(request, template_name='startup/founder_detail.html', context= {'founder' : founder})
     
+def employee_update(request, id):
+    
+    employee = get_object_or_404(Employee, id=id)
+
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST, instance=employee)
+        if form.is_valid(): 
+             employee.save()
+             return redirect("home")
+    else:
+        form = EmployeeForm(instance=employee)
+        return render(request, template_name='startup/employee_update.html', context= {'form' : form,'id' : id})
+
+
+def employee_detail(request, id):
+    employee = get_object_or_404(Employee, id=id)
+
+    return render(request, template_name='startup/employee_detail.html', context= {'employee' : employee})
 
 
 def investor_feed(request):

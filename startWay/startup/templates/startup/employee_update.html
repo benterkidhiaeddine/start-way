@@ -1,0 +1,18 @@
+{% extends "startup/base.html" %}
+
+{% load django_bootstrap5 %}
+
+
+
+  {% block content %}
+ 
+
+    <form action={% url 'employee_update' id %} method="post">
+        {% csrf_token %}
+
+        {% bootstrap_form  form  %}
+
+        <button class="btn btn-primary mb-4">submit</button>
+    </form>
+  
+  {% endblock %}

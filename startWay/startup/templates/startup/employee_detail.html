@@ -1,0 +1,35 @@
+{% extends "startup/base.html" %}
+
+
+
+{% load django_bootstrap5 %}
+
+
+
+
+
+{% block content %}
+    <h2><span>{{ employee.role|title  }}
+</span> Name</h2>
+    <p>{{ employee.user.username  }}</p>
+    
+    <h2>Description</h2>
+    <p>{{ founder.description  }}</p>
+
+    <h2>Website URL</h2>
+    <p>{{ employee.websiteUrl  }}</p>
+
+    <h2>City</h2>
+    <p>{{ employee.city  }}</p>
+
+
+    <h2>Speciality</h2>
+    <p>{{ employee.speciality  }}</p>
+
+    <h2>Hourly Rate</h2>
+    <p>{{ employee.hourlyRate  }}</p>
+
+    
+
+
+{% endblock %}

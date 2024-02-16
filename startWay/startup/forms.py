@@ -1,5 +1,5 @@
 from django import forms
-from .models import Founder
+from .models import Founder, Employee
 
 
 
@@ -26,3 +26,7 @@ class FounderForm(forms.ModelForm):
         model = Founder
         fields = ['startupName', 'websiteUrl', 'city', 'business', 'annualRevenue', 'productType', 'description']
 
+class EmployeeForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        fields = ['user','speciality', 'city', 'hourlyRate', 'phone_number']
