@@ -1,0 +1,15 @@
+{% extends "startup/base.html" %}
+
+
+  {% block content %}
+ 
+
+     <form action={% url 'founder_form' id %} method="post">
+                            {% csrf_token %}
+
+                         {{ form }}
+
+                      <button>submit</button>
+                        </form>
+  
+  {% endblock %}

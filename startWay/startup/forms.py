@@ -1,4 +1,6 @@
 from django import forms
+from .models import Founder
+
 
 
 
@@ -14,7 +16,13 @@ class SignUpForm(forms.Form):
 
 class SignInForm(forms.Form):
 
-    email = forms.EmailField()
+    userna = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput())
 
+
+
+class FounderForm(forms.ModelForm):
+    class Meta:
+        model = Founder
+        fields = ['startupName', 'websiteUrl', 'city', 'business', 'annualRevenue', 'productType', 'description']
 

@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
 from .models import *
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
+from .forms import FounderForm
 
 # Create your views here.
 def home(request):
@@ -67,3 +68,24 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+#founder from
+def founder_form_view(request, id):
+    
+    founder = get_object_or_404(Founder, id=id)
+
+    if request.method == 'POST':
+        form = FounderForm(request.POST, instance=founder)
+        if form.is_valid(): 
+             founder.save()
+             return redirect("home")
+    else:
+        form = FounderForm(instance=founder)
+        return render(request, template_name='startup/Founder.html', context= {'form' : form,'id' : id})
+
+
+
+def investor_list_startup(request):
+    
+    founders = Founder.objects.all()
+    pass 
