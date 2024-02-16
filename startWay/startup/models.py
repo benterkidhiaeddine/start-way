@@ -39,7 +39,7 @@ class Employee(models.Model):
     city = models.CharField(max_length=255)
     hourlyRate = models.FloatField(null=True, blank=True)
     role = models.CharField(max_length=7, choices=CHOICES)
-    phone_number = models.CharField(max_length=255, label='Phone Number')
+    phone_number = models.CharField(max_length=255)
 
 
 
@@ -51,7 +51,7 @@ class Skill(models.Model):
 class Investor(models.Model):
     user = models.OneToOneField(User, related_name='Investor', on_delete=models.CASCADE)
     city = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=255, label='Phone Number')
+    phone_number = models.CharField(max_length=255)
 
 
 
