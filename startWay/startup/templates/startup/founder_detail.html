@@ -8,7 +8,14 @@
 
 {% block content %}
    
-    <img src="{{ founder.profile_image.url }}" alt="profile-image">
+   
+   
+    <img src="{{ founder.founder_image_url }}" alt="profile-image">
+
+    <h2>Startup Name</h2>
+    <p>{{ founder.startupName }}</p>
+
+
     <h2>Website URL</h2>
     <p>{{ founder.websiteUrl  }}</p>
 

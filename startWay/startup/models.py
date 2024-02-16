@@ -8,13 +8,12 @@ from django.contrib.auth.models import User
 class Founder(models.Model):
     CHOICE_B2B = 'B2B'
     CHOICE_B2C = 'B2C'
-
     CHOICES = [
         (CHOICE_B2B, 'B2B'),
         (CHOICE_B2C, 'B2C'),
     ]
 
-    user = models.OneToOneField(User, related_name='Founder', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='founder', on_delete=models.CASCADE)
     startupName = models.CharField(max_length=255, null=True, blank=True)
     websiteUrl = models.URLField(max_length=255, null=True, blank=True)
     city = models.CharField(max_length=255)
@@ -24,8 +23,13 @@ class Founder(models.Model):
     description = models.TextField(null=True, blank=True)
     phone_number = models.CharField(max_length=255)
     profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
-
-    
+#
+    @property
+    def founder_image_url(self):
+        try:
+            return self.profile_image.url
+        except: 
+            return "/media/images/default.jpg"
     
 
 
@@ -38,7 +42,7 @@ class Employee(models.Model):
         (CHOICE_TALENT, 'TALENT')
     ]
 
-    user = models.OneToOneField(User, related_name='Mentor', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='employee', on_delete=models.CASCADE)
     speciality = models.CharField(max_length=255,null=True, blank=True)
     city = models.CharField(max_length=255)
     hourlyRate = models.FloatField(null=True, blank=True)
@@ -53,7 +57,7 @@ class Skill(models.Model):
 
 
 class Investor(models.Model):
-    user = models.OneToOneField(User, related_name='Investor', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='investor', on_delete=models.CASCADE)
     city = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=255)
 
