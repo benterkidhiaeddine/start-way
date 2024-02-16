@@ -1,0 +1,27 @@
+{%  extends "startup/base.html" %} 
+
+
+
+ {% block content %}
+ 
+    {% for founder in founders  %}
+
+ <div class="card" style="width: 18rem;">
+  
+    {% if founder.founder_image %}
+    <img src="{{ founder.founder_image.url }}" class="card-img-top" alt="...">
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ founder.startupName }} </h5>
+      <p class="card-text">{{ founder.city}} </p>
+      <p class="card-text"> {{ founder.email }} </p>
+      <a class="btn btn-primary">Fund</a>
+      <a class="btn btn-info" href="{% url 'founder_detail' founder.pk %}">Detail</a></p>
+      
+      
+     
+  
+    </div>
+    {% endfor %}
+ 
+ {% endblock content %}

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 from .forms import FounderForm
 
+
 # Create your views here.
 def home(request):
     return render(request, template_name='startup/LandingPage.html')
@@ -70,7 +71,7 @@ def user_logout(request):
     return redirect('login')
 
 #founder from
-def founder_form_view(request, id):
+def founder_update(request, id):
     
     founder = get_object_or_404(Founder, id=id)
 
@@ -81,11 +82,20 @@ def founder_form_view(request, id):
              return redirect("home")
     else:
         form = FounderForm(instance=founder)
-        return render(request, template_name='startup/Founder.html', context= {'form' : form,'id' : id})
+        return render(request, template_name='startup/founder_update.html', context= {'form' : form,'id' : id})
 
 
 
-def investor_list_startup(request):
+def founder_detail(request, id):
+    founder = get_object_or_404(Founder, id=id)
+
+    return render(request, template_name='startup/founder_detail.html', context= {'founder' : founder})
+    
+
+
+def investor_feed(request):
     
     founders = Founder.objects.all()
-    pass 
+    return  render(request , template_name="startup/investor_feed.html", context={"founders" : founders})
+
+

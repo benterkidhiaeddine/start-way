@@ -1,0 +1,33 @@
+{% extends "startup/base.html" %}
+{% load django_bootstrap5 %}
+
+
+
+
+
+{% block content %}
+    
+    <h2>Startup Name</h2>
+    <p>{{ founder.startUpName  }}</p>
+
+    <h2>Website URL</h2>
+    <p>{{ founder.websiteUrl  }}</p>
+
+    <h2>City</h2>
+    <p>{{ founder.city  }}</p>
+
+
+    <h2>Buisiness</h2>
+    <p>{{ founder.business  }}</p>
+
+    <h2>Annual  Revenue</h2>
+    <p>{{ founder.annualRevenue  }}</p>
+
+    <h2>Product type</h2>
+    <p>{{ founder.productType  }}</p>
+    
+    <h2>Description</h2>
+    <p>{{ founder.description  }}</p>
+
+
+{% endblock %}
