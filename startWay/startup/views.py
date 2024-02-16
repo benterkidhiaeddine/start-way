@@ -12,7 +12,7 @@ from .forms import FounderForm
 
 #TODO
 def landing_page(request):
-    return render(request, template_name="landing-page.html")
+    return render(request, template_name="startup/landing_page.html")
 
 
 

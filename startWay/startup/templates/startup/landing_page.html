@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landingpage</title>
+    <link rel="stylesheet" href="{% static 'css/start.css' %}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--GOOGLE FONTS-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+
+    ¨
+    <!-- HEADER SECTION-->
+    <nav>
+      <div>
+        <a href=""><img src="{% static 'assets/logo.png' %}" alt="image" /></a>
+      </div>
+      <div>
+        <ul>
+          <li><a href=" " id="home">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Services</a></li>
+          <li><a href="">Q&A</a></li>
+        </ul>
+      </div>
+      <div>
+        <a href="{% url 'login' %}" id="login">Log in</a> <a href="{% url 'signup' %}" id="Register">Register </a>
+      </div>
+    </nav>
+        <!--MAIN SECTION-->
+
+    <main>
+            <!-- first page-->
+
+      <section class="container">
+        
+        
+        <div class="headertext">
+            <div>
+                <h1 id="title">Meaningful investments in Main Street businesses</h1>
+                <p> 
+                  Welcome to Start Way!Start Way is the ultimate platform for startups
+                  in Algeria, designed to address the unique challenges faced by
+                  entrepreneurs like you.
+                </p>
+            </div>
+                
+
+          <div>
+            <a href="{% url 'signup' %}" id="get_started_btn">GET STARTED<a>
+        </div>
+        </div>
+      </section>
+      <!-- Second page-->
+      <section class="offers">
+<div class="offers-of">
+    <div class="text">
+        <h1>Offerings open for investment</h1>
+        <p>Explore pre-vetted investment opportunities available in a growing number of industry categories.</p>
+        
+    </div>
+    <div class="Cards">
+        <div class="card1">
+            <img src="{% static 'assets/card.jpg' %}" >
+            <h2>Oxalis</h2>
+            <p>A recognized leader in language immersion & early education, opening second school.</p>
+        </div>
+        <div class="card1">
+            <img src="{% static 'assets/card.jpg' %}" >
+            <h2>Oxalis</h2>
+            <p>A recognized leader in language immersion & early education, opening second school.</p>
+        </div>
+        <div class="card1">
+            <img src="{% static 'assets/card.jpg' %}" >
+            <h2>Oxalis</h2>
+            <p>A recognized leader in language immersion & early education, opening second school.</p>
+        </div>
+        </div>
+        <div class="Cards">
+            <div class="card1">
+                <img src="{% static 'assets/card.jpg' %}" >
+                <h2>Oxalis</h2>
+                <p>A recognized leader in language immersion & early education, opening second school.</p>
+            </div>
+            <div class="card1">
+                <img src="{% static 'assets/card.jpg' %}" >
+                <h2>Oxalis</h2>
+                <p>A recognized leader in language immersion & early education, opening second school.</p>
+            </div>
+            <div class="card1">
+                <img src="{% static 'assets/card.jpg' %}" >
+                <h2>Oxalis</h2>
+                <p>A recognized leader in language immersion & early education, opening second school.</p>
+            </div>
+            </div>
+    
+    </div>
+    
+    <div id="button-view">View All Projects</div>
+</div>
+   </section>
+
+<!-- Third page-->
+<section class="containre-logo">
+    <div class="Logo">
+
+<a href=""><img src="{% static 'assets/Link ⏵ brand1.png.svg' %}" alt=""></a>
+<a href=""><img src="{% static 'assets/Link ⏵ brand2.png.svg' %}" alt=""></a>
+<a href=""><img src="{% static 'assets/Link ⏵ brand3.png.svg' %}" alt=""></a>
+<a href=""><img src="{% static 'assets/Link ⏵ brand5.png.svg' %}" alt=""></a>
+    </div>
+    
+</section>
+<section class="reviews">
+
+    <div class="testimonials">
+        <div class="inner">
+          <h1>REVIEWS</h1>
+          <div class="border"></div>
+  
+          <div class="row">
+            <div class="col">
+              <div class="testimonial">
+                <img src="{% static 'assets/p1.png' %}" alt="">
+                <div class="name">Mouhamed</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+  
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                </p>
+              </div>
+            </div>
+  
+            <div class="col">
+              <div class="testimonial">
+                <img src="{% static 'assets/p2.png' %}" alt="">
+                <div class="name">Ali </div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+  
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                </p>
+              </div>
+            </div>
+  
+            <div class="col">
+              <div class="testimonial">
+                <img src="{% static 'assets/p3.png' %}" alt="">
+                <div class="name">Kamilya</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+  
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+    <div class="footer">
+    <div class="row">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-youtube"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    </div>
+    
+    <div class="row">
+    <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Terms & Conditions</a></li>
+    <li><a href="#">Career</a></li>
+    </ul>
+    </div>
+    
+    <div class="row">
+    INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: yoyo dz
+    </div>
+    </div>
+    </footer>
+    
+
+    </main>
+
+   
+
+  </body>
+</html>
