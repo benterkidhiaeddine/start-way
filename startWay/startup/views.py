@@ -10,6 +10,11 @@ from django.core.exceptions import PermissionDenied
 
 from .forms import FounderForm
 
+#TODO
+def landing_page(request):
+    return render(request, template_name="landing-page.html")
+
+
 
 #This route where all user get redirected to their respective profiles 
 @login_required
@@ -101,5 +106,8 @@ def investor_feed(request):
     
     founders = Founder.objects.all()
     return  render(request , template_name="startup/investor_feed.html", context={"founders" : founders})
+
+
+
 
 

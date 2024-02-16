@@ -1,0 +1,50 @@
+{% load static %}
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+<!-- Sidebar - Brand -->
+<a  class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
+    <div  class="sidebar-brand-icon">
+        <img id="brand-holder" width=200 hieght=200 src="{% static 'img/logo-text.png' %}" alt="">
+    </div>
+</a>
+
+
+<!-- Divider -->
+<hr class="sidebar-divider my-0">
+
+<!-- Nav Item - Dashboard -->
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'home' %}">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+</li>
+    
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    
+
+    <li class="nav-item active">
+    <a class="nav-link" href="{% url 'home' %}">
+        <i class="fa fa-regular fa-user"></i>
+        <span>Profile</span></a>
+    </li>
+
+    
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+    
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+    
+    <li class="nav-item active">
+    <a class="nav-link" href="{% url 'home' %}">
+        <i class="fa-light fa-right-from-bracket"></i>
+        <span>Logout</span></a>
+    </li>
+    
+</ul>
+<!-- End of Sidebar -->
+
