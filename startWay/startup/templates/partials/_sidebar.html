@@ -1,4 +1,6 @@
 {% load static %}
+{% load user_filter %}
+
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -29,6 +31,24 @@
         <i class="fa fa-regular fa-user"></i>
         <span>Profile</span></a>
     </li>
+
+
+    <!--User specefic tabs in Side bar-->
+
+
+    {% if user.is_authenticated %}
+        {% if user|is_user:'founder' %}
+            
+            <li class="nav-item active">
+            <a class="nav-link" href="{% url 'founder_upload_pitch' user.founder.pk %}">
+                <i class="fa fa-solid fa-folder-open"></i>
+                <span>Upload pitch Deck</span></a>
+            </li>
+        {% endif %}
+    {% endif %}
+
+
+
 
     
     <!-- Divider -->

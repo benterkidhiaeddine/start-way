@@ -23,7 +23,9 @@ class Founder(models.Model):
     description = models.TextField(null=True, blank=True)
     phone_number = models.CharField(max_length=255)
     profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
-#
+    pitch_deck_document = models.FileField(null=True,blank=True , upload_to="pdfs/")
+
+
     @property
     def image_url(self):
         try:

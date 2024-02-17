@@ -7,7 +7,6 @@ from django.http import HttpResponseNotFound
 
 
 
-
 # login page
 def user_login(request):
     if request.method == 'POST':
@@ -25,14 +24,11 @@ def user_login(request):
                 login(request, user)
                 return redirect('home')
 
-            
                 
     else:
         form = SignInForm()
     return render(request, 'startup/login.html', {'form': form})
 
-    
-    
 
 # signup page
 def user_signup(request):

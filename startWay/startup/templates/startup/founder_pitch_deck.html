@@ -1,0 +1,41 @@
+{% extends "startup/base.html" %}
+
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="d-flex mb-4">
+    <div class="d-flex flex-column mr-2 ">
+        
+           <img class="rounded-4 mb-2"  witdth="150.55px" height="172.55px" src="{{ founder.image_url }}" alt="profile-image">
+           <h2 class="text-center">{{ founder.startupName  }}</h2>
+        
+    </div>
+        
+    <div class="d-flex flex-column flex-grow-1">
+            <p class="ml-5 fw-bold p-0">Description</p>
+            <div class="card">
+                <p class="card-body h-75 p-2">{{ founder.description  }}</p>
+            </div>
+     </div>
+</div>
+
+
+<h2>Your Pitch deck</h2>
+
+
+<form action={% url 'founder_upload_pitch' founder.pk %} method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      {% bootstrap_form  form  %}
+
+       <button class="btn btn-primary mb-4">Submit</button>
+</form>
+
+
+
+
+
+{% endblock %}

@@ -32,3 +32,9 @@ class EmployeeForm(forms.ModelForm):
     class Meta:
         model = Employee
         fields = ['user','speciality', 'city', 'hourlyRate', 'phone_number','description','profile_image']
+
+        
+class PitchDeckForm(forms.Form):
+    file = forms.FileField()
+
+

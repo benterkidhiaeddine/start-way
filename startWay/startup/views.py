@@ -4,13 +4,12 @@ from django.urls import reverse
 from .forms import *
 from .models import *
 from django.contrib.auth.models import User
-from django.http import HttpResponseNotFound, HttpResponse
+from django.http import HttpResponseNotFound, HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 
 from .forms import FounderForm
 
-#TODO
 def landing_page(request):
     return render(request, template_name="startup/landing_page.html")
 
@@ -64,6 +63,23 @@ def founder_detail(request, id):
 
     return render(request, template_name='startup/founder_detail.html', context= {'founder' : founder})
 
+
+
+@login_required
+def founder_upload_pitch(request, id):
+    user = request.user
+    if not hasattr(user, "founder"):
+        raise PermissionDenied
+
+    founder = get_object_or_404(Founder, pk=id)
+    if request.method == "POST":
+        form = PitchDeckForm(request.POST, request.FILES)
+        if form.is_valid():
+            return HttpResponseRedirect("/")
+    else:
+        form = PitchDeckForm()
+    return render(request, "startup/founder_pitch_deck.html", {"form": form, "founder": founder })
+
 @login_required  
 def employee_update(request, id):
     user = request.user
@@ -101,8 +117,6 @@ def investor_feed(request):
     
     founders = Founder.objects.all()
     return  render(request , template_name="startup/investor_feed.html", context={"founders" : founders})
-
-
 
 
 
