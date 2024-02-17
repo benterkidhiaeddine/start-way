@@ -35,7 +35,7 @@
 
     <!--User specefic tabs in Side bar-->
 
-
+    <!--Founder side bar-->
     {% if user.is_authenticated %}
         {% if user|is_user:'founder' %}
             
@@ -48,6 +48,18 @@
     {% endif %}
 
 
+    <!--Employee side bar-->
+
+    {% if user.is_authenticated %}
+        {% if user|is_user:'employee' %}
+            
+            <li class="nav-item active">
+            <a class="nav-link" href="{% url 'employee_skills' user.employee.pk %}">
+                <i class="fa fa-solid fa-book"></i>
+                <span>Skills</span></a>
+            </li>
+        {% endif %}
+    {% endif %}
 
 
     

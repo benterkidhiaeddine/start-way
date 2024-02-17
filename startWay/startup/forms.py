@@ -1,5 +1,5 @@
 from django import forms
-from .models import Founder, Employee
+from .models import Founder, Employee,Skill
 
 
 
@@ -38,3 +38,8 @@ class PitchDeckForm(forms.Form):
     file = forms.FileField()
 
 
+class SkillForm(forms.ModelForm):
+    class Meta:
+        model = Skill
+        fields = ['skillName']
+    

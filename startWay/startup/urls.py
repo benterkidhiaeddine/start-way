@@ -14,6 +14,7 @@ urlpatterns = [
     path('founders/<int:id>/pitch_deck', views.founder_upload_pitch, name = "founder_upload_pitch"),
     path('employees/<int:id>/detail',views.employee_detail, name ='employee_detail'),
     path('employees/<int:id>/update',views.employee_update, name ='employee_update'),
+    path('employees/<int:id>/skills', views.employee_skills, name = 'employee_skills'),
     path('investor_feed' , views.investor_feed, name = 'investor_feed'),
     path('landing_page', views.landing_page, name = 'landing_page') 
 ]

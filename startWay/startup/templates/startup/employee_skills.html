@@ -1,0 +1,33 @@
+{% extends "startup/base.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+
+
+
+    <h2>Add your skills here</h2>
+
+    <form action={% url 'employee_skills' employee.pk %} method="post"  > 
+        {% csrf_token %}
+
+        {% bootstrap_form  form  %}
+
+        <button class="btn btn-primary mb-4">submit</button>
+    </form>
+
+
+    <h2>Skills</h2>
+    <ul>
+        {% for skill in skills  %}
+            <li>{{ skill.skillName }}</li>
+        {% endfor %}
+    </ul>
+
+
+
+
+
+{% endblock %}
+

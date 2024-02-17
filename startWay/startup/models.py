@@ -65,7 +65,7 @@ class Employee(models.Model):
 
 class Skill(models.Model):
     skillName = models.CharField(max_length=255)
-    employee = models.ForeignKey(Employee, related_name='Skill', on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, related_name='skills', on_delete=models.CASCADE)
 
 
 class Investor(models.Model):

@@ -108,7 +108,34 @@ def employee_detail(request, id):
     return render(request, template_name='startup/employee_detail.html', context= {'employee' : employee})
 
 @login_required
+def employee_skills(request, id):
+
+    user = request.user
+        
+    if not hasattr(user, 'employee'):
+        raise PermissionDenied
+
+    employee = get_object_or_404(Employee, pk=id)
+
+    if request.method == "POST":
+        form = SkillForm(request.POST)
+        if form.is_valid():
+            new_form = form.save(commit=False)
+            new_form.employee = employee
+            new_form.save()
+            return redirect(reverse('employee_skills',args=[id]))
+    else:
+        form = SkillForm()
+        skills =   employee.skills.all()
+        
+    return render(request, "startup/employee_skills.html", {"form": form, "employee": employee , "skills" : skills})
+
+
+
+
+@login_required
 def investor_feed(request):
+    
     
     user = request.user
     if not hasattr(user, 'investor'):
