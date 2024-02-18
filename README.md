@@ -27,16 +27,28 @@ source venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
-5. Change the directory to 
 ## Running Steps:
 
-1. change the directory to the "startWay" project directory then run the command 
+
+1. Setup the mySQL server on your machine
+
+2. create a .env file at the root of your django project ; inside it store your mysql password like so
+
+```
+
+my_sql_password=1234
+
+```
+
+3. change the directory to the "startWay" project directory then run the command 
 ```
 python manage.py migrate
 ```
 To run the migrations and create the db and tables
-2. Run the local server . In the same directory do the command
+4. Run the local server . In the same directory do the command
 ```
 python manage.py runserver
 ```
-3. Go to localhost:8000 to acess the webapp
+5. Go to localhost:8000 to access the webapp
+
+
